@@ -1,4 +1,4 @@
-## PRI study guide
+## PRI exam study guide
 
 -   [IR Tasks and Systems](./1_ir_tasks_and_systems.md)
 -   [IR Concepts](./2_ir_concepts.md)
