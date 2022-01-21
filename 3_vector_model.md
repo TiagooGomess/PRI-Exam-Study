@@ -124,5 +124,92 @@ Can the `tf-idf` weight of a term in a document exceed 1?
 ## Example 6.2
 
 -   ![](https://i.imgur.com/VbedOlv.png)
--   ![](https://i.imgur.com/8lM3Hxt.png)
--   ![](https://i.imgur.com/cn4MFtH.png)
+    -   ![](https://i.imgur.com/8lM3Hxt.png)
+    -   ![](https://i.imgur.com/cn4MFtH.png)
+-   For `Doc1`:
+    -   sqrt(27^2 + 3^2 + 0^2 + 14^2) = 30.56
+-   For `Doc2`:
+    -   sqrt(4^2 + 33^2 + 33^2 + 0^2) = 46.84
+-   For `Doc3`:
+    -   sqrt(24^2 + 0^2 + 29^2 + 17^2) = 41.30
+-   To calculate the values of the table of the Figure 6.11:
+    -   For `Doc1`:
+        -   For `car`:
+            -   27 / 30.56 = 0.88
+        -   ...
+    -   ...
+
+## Example 6.3
+
+-   Figure 6.12 shows the number of occurrences of three terms (affection, jealous and gossip) in each of the following three novels: Jane Austen’s Sense and Sensibility (SaS) and Pride and Prejudice (PaP) and Emily Brontë’s Wuthering Heights (WH).
+-   Of course, there are many other terms occurring in each of these novels. In this example we represent each of these novels as a unit vector in three dimensions, corresponding to these three terms (only); we use raw term frequencies here, with no `idf` multiplier. The resulting weights are as shown in Figure 6.13
+    -   ![](https://i.imgur.com/U4TrS2e.png)
+    -   ![](https://i.imgur.com/VUXva1h.png)
+-   Now consider the cosine similarities between pairs of the resulting three-dimensional vectors. A simple computation shows that `sim(v(SAS), v(PAP))` is 0.999, whereas `sim(v(SAS), v(WH))` is 0.888; thus, the two books authored by Austen (SaS and PaP) are considerably closer to each other than to Brontë’s Wuthering Heights. In fact, the similarity between the first two is almost perfect (when restricted to the three terms we consider). Here we have considered `tf` weights, but we could of course use other term weight functions.
+
+## Queries as vectors
+
+-   The key idea now: to assign to each document `d` a score equal to the dot product
+    -   ![](https://i.imgur.com/RnGyM8c.png)
+-   The number of dimensions is equal to the vocabulary size `M`.
+-   To summarize, by viewing a query as a "bag of words", we are able to treat it as a very short document. As a consequence, we can use the cosine similarity between the query vector and a document vector as a measure of the score of the document for that query. The resulting scores can then be used to select the top-scoring documents for a query
+    -   ![](https://i.imgur.com/a9LJU8a.png)
+
+## Example 6.4
+
+-   ![](https://i.imgur.com/5TWHsJR.png)
+
+## Questions in section 6.2
+
+Consider the following `tf-idf` weights:
+
+-   tf-idf(car) for `Doc1`, `Doc2`, `Doc3` => `44.55`, `6.6`, `39.6`
+-   tf-idf(auto) for `Doc1`, `Doc2`, `Doc3` => `6.24`, `68.64`, `0`
+-   tf-idf(insurance) for `Doc1`, `Doc2`, `Doc3` => `0`, `53.46`, `46.98`
+-   tf-idf(best) for `Doc1`, `Doc2`, `Doc3` => `21`, `0`, `25.5`
+
+Compute the Euclidean normalized document vectors for each of the documents, where each vector has four components, one for each of the four terms (car, auto, insurance, best).
+
+-   For `Doc1`:
+    -   `Euclidean normalization value = sqrt(44.55^2 + 6.24^2 + 0^2 + 21^2) = 49.65`
+    -   `Euclidean normalized document vector = (44.55 / 49.65, 6.24 / 49.65, 0 / 49.65, 21 / 49.65) = (0.897, 0.126, 0, 0.422)`
+-   For `Doc2`:
+    -   `Euclidean normalization value = sqrt(6.6^2 + 68.64^2 + 53.46^2 + 0^2) = 87.25`
+    -   `Euclidean normalized document vector = (6.6 / 87.25, 68.64 / 87.25, 53.46 / 87.25, 0 / 87.25) = (0.076, 0.7867, 0.613, 0)`
+-   For `Doc3`:
+    -   `Euclidean normalization value = sqrt(39.6^2 + 0^2 + 46.98^2 + 25.5^2) = 64.78`
+    -   `Euclidean normalized document vector = (39.6 / 64.78, 0 / 64.78, 46.98 / 64.78, 25.5 / 64.78) = (0.611, 0, 0.725, 0.394)`
+
+<hr>
+
+Verify that the sum of the squares of the components of each of the document vectors in the previous exercise is 1 (to within rounding error). Why is this the case?
+
+-   For `Doc1`:
+    -   `0.897^2 + 0.126^2 + 0^2 + 0.422^2 = 1`
+-   For `Doc2`:
+    -   `0.076^2 + 0.7867^2 + 0.613^2 + 0^2 = 1`
+-   For `Doc3`:
+    -   `0.611^2 + 0^2 + 0.725^2 + 0.394^2 = 1`
+
+The vectors were normalized, so the some of the squares of each component is 1.
+
+<hr>
+
+With term weights as computed in the first exercise of this section, rank the three documents by computed score for the query `car insurance`, for each of the following cases of term weighting in the query:
+
+i) The weight of a term is 1 if present in the query, 0 otherwise
+ii) Euclidean normalized idf
+
+-   i)
+    -   Term weights (`Doc1`, `Doc2`, `Doc3`):
+        -   car => (0.897, 0.076, 0.611)
+        -   auto => (0.126, 0.7667, 0)
+        -   insurance => (0, 0.613, 0.725)
+        -   best => (0.422, 0, 0.394)
+    -   For `Doc1`:
+        -   `score = v(q) . v(d) = (1, 0, 1, 0) . (0.897, 0.126, 0, 0.422) = 0.897`
+    -   For `Doc2`:
+        -   `score = v(q) . v(d) = (1, 0, 1, 0) . (0.076, 0.7867, 0.613, 0) = 0.076 + 0.613 = 0.689`
+    -   For `Doc3`:
+        -   `score = v(q) . v(d) = (1, 0, 1, 0) . (0.611, 0, 0.725, 0.394) = 0.611 + 0.725 = 1.336`
+    -   Ranking = `Doc3`, `Doc1`, `Doc2`
