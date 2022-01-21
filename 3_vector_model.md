@@ -50,7 +50,7 @@
 -   Overlap score measure: the score of a document `d` is the sum, over all query terms, of the number of times each of the query terms occurs in `d`. We can refine this idea so that we add up not the number of occurrences of each query term t in d, but instead the tf-idf weight of each term in d.
     -   ![](https://i.imgur.com/JsYqtH2.png)
 
-## Questions
+## Questions in section 6.2
 
 Why is the `idf` of a term always finite?
 
@@ -97,3 +97,32 @@ Can the `tf-idf` weight of a term in a document exceed 1?
 -   Yes, as we can see in the exercise above.
 
 <hr>
+
+## Vector space model
+
+-   Representation of a set of documents as vectors in a common vector space
+-   It is fundamental to a host of information retrieval operations ranging from scoring documents on a query, document classification and document clustering
+-   To compensate for the effect of document length, the standard way of quantifying the similarity between two documents `d1` and `d2` is to compute the cosine similarity of their vector representations `V(d1)` and `V(d2)`:
+    -   ![](https://i.imgur.com/oFBGm9q.png)
+    -   where the numerator represents the dot product (also known as inner product) of the vectors `V(d1)` and `V(d2)`, while the denominator is the product of their Euclidean lengths.
+    -   This formula can rewritten to:
+        -   ![](https://i.imgur.com/Mp8z7sK.png)
+        -   where:
+        -   ![](https://i.imgur.com/70RstbV.png)
+        -   and:
+        -   ![](https://i.imgur.com/DAbE0QJ.png)
+    -   Thus, `sim(d1, d2)` can be viewed as the dot product of the normalized versions of the two document vectors
+    -   This measure is the cosine of the angle `θ` between the two vectors, shown in the following figure:
+    -   ![](https://i.imgur.com/IGlfRhp.png)
+-   What use is the similarity measure `sim(d1, d2)`?
+    -   Given a document `d`, consider searching for the documents in the collection most similar to `d`
+    -   Such a search is useful in a system where a user may identify a document and seek others like it – a feature available in the results lists of search engines as a more like this feature
+    -   We reduce the problem of finding the document(s) most similar to `d` to that of finding the `di` with the highest dot products (sim values) `v(d)·v(di)`.
+    -   We could do this by computing the dot products between `v(d)` and each of `v(d1), . . . ,v(dN)`, then picking off the highest resulting `sim` values
+-   Term-document matrix: this is an `M × N` matrix whose rows represent the `M` terms (dimensions) of the `N` columns, each of which corresponds to a document
+
+## Example 6.2
+
+-   ![](https://i.imgur.com/VbedOlv.png)
+-   ![](https://i.imgur.com/8lM3Hxt.png)
+-   ![](https://i.imgur.com/cn4MFtH.png)
