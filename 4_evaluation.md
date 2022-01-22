@@ -63,3 +63,61 @@ What are the possible values for interpolated precision at a recall level of 0?
 -   then, `0 <= interpolated precision at a recall level of 0 <= 1`
 
 ## Exercise 8.8
+
+Consider an information need for which there are 4 relevant documents in the collection. Contrast two systems run on this collection. Their top 10 results are judged for relevance as follows (the leftmost item is the top ranked search result):
+
+System 1 => R N R N N N N N R R
+
+System 2 => N R N N R R R N N N
+
+Precisions:
+
+System 1 => 1 0.5 0.67 0.5 0.4 0.33 0.29 0.25 0.33 0.4
+
+System 2 => 0 0.5 0.3 0.25 0.4 0.5 0.57 0.5 0.44 0.4
+
+a. What is the MAP of each system? Which has a higher MAP?
+
+-   For the System 1:
+    -   `MAP = (1 + 0.67 + 0.33 + 0.4) / 4 = 0.6`
+-   For the System 2:
+    -   `MAP = (0.5 + 0.4 + 0.5 + 0.57) / 4 = 0.4925`
+-   System 1 has a higher MAP
+
+b. Does this result intuitively make sense? What does it say about what is important in getting a good MAP score?
+
+-   For a good MAP score, it is essential to more relevant documents in the first few (3-5) retrieved ones
+
+c. What is the R-precision of each system? (Does it rank the systems the same as MAP?)
+
+-   R-precision(System 1) = 2 / 4 = 0.5
+-   R-precision(System 2) = 1 / 4 = 0.25
+-   It ranks the systems the same as MAP (System 1 is better in both)
+
+## Exercise 8.9
+
+The following list of Rs and Ns represents relevant (R) and nonrelevant (N) returned documents in a ranked list of 20 documents retrieved in response to a query from a collection of 10,000 documents. The top of the ranked list (the document the system thinks is most likely to be relevant) is on the left of the list. This list shows 6 relevant documents. Assume that there are 8 relevant documents in total in the collection.
+
+R R N N N N N N R N R N N N R N N N N R
+
+a. What is the precision of the system on the top 20?
+
+-   `P = 6 / 20 = 0.3`
+
+b. What is the F1 on the top 20?
+
+-   `F1 = (2*P*R)/(P+R)`
+-   `R = 6 / 8 = 0.75`
+-   `F1 = (2*0.3*0.75)/(0.3+0.75) = 0.43`
+
+c. What is the interpolated precision of the system at 25% recall?
+
+-   Recall values:
+    -   0.125 0.25
+-   Precision values:
+    -   1 1
+-   The precision is 1
+
+e. Assume that these 20 documents are the complete result set of the system. What is the MAP for the query?
+
+-   `MAP = (1/1 + 2/2 + 3/9 + 4/11 + 5/15 + 6/20) / 6 = 0.555`
