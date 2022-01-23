@@ -5,3 +5,4 @@
 -   [IR Vector Model](./3_vector_model.md)
 -   [Evaluation](./4_evaluation.md)
 -   [Web Search](./5_web_search.md)
+-   [Link Analysis](./6_link_analysis.md)
