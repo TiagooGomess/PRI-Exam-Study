@@ -2,7 +2,7 @@
 
 ## Some definitions
 
--   Term: A token is an instance of a sequence of characters in some particular document that are grouped together as a useful semantic unit for processing.
+-   Token: A token is an instance of a sequence of characters in some particular document that are grouped together as a useful semantic unit for processing.
 -   Type: A type is the class of all tokens containing the same character sequence.
 -   Term: A term is a type that is included in the IR system’s dictionary. Rather than being exactly the tokens that appear in the document, they are usually derived from them by various normalization processes
 
