@@ -9,7 +9,7 @@
 
 -   The text used in HTML anchors, i.e. links, is called anchor text.
 -   Represents a description from "others" about a given web page.
--   The collection of all anchor texts can be explored with standard IR techniques, and incorporated as an additional features in an inverted index
+-   The collection of all anchor texts can be explored with standard IR techniques, and incorporated as an additional feature in an inverted index
 -   Important feature for image search
 
 ## Calculate PageRank values for a set of linked documents.
