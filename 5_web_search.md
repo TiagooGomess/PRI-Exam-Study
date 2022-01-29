@@ -11,6 +11,8 @@
 
 -   In enterprise search, the search engine users are professionals who know how to make the queries the best way
 -   Web search users are not trained on how to write queries or the search operators offered by search engines
+-   Only in enterpresise search the collection can be controlled
+    - In web search, the collection is decentralized   
 
 ## How do you index images?
 
