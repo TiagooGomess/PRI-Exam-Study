@@ -7,3 +7,4 @@
 -   [Web Search](./5_web_search.md)
 -   [Link Analysis](./6_link_analysis.md)
 -   [Query Processing](./7_query_processing.md)
+-   [Entity-oriented Search](./8_entity_oriented_search.md)
