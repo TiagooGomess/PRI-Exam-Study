@@ -59,7 +59,7 @@ An IR system returns 8 relevant documents, and 10 nonrelevant documents. There a
 What are the possible values for interpolated precision at a recall level of 0?
 
 -   the interpolated precision at a certain recall level r is defined as the highest precision found for any recall level r′ ≥ r
--   the precision at a recall level of 0: `0 <= p <= 1`
+-   the interpolated precision at a recall level of 0: `0 <= p <= 1`
 -   then, `0 <= interpolated precision at a recall level of 0 <= 1`
 
 ## Exercise 8.8
