@@ -36,7 +36,7 @@
 ### Inverted index
 
 -   The name is actually redundant: an index always maps back from terms to the parts of a document where they occur.
--   The basic idea of an inverted index is shown in following figure:
+-   The basic idea of an inverted index is shown in the following figure:
     -   ![](https://i.imgur.com/oGALw0t.png)
 -   We keep a dictionary of terms (sometimes also referred to as a vocabulary or lexicon; in this book, we use dictionary for the data structure and vocabulary for the set of terms)
 -   Then for each term, we have a list that records which documents the term occurs in.
