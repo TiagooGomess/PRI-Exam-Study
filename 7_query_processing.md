@@ -5,6 +5,7 @@
 -   Document-at-a-time, calculates complete scores for documents by processing all term lists, one document at a time. At the end all documents are sorted according to their score.
 -   Term-at-a-time, accumulates scores for documents by processing term lists one at a time. When all terms are processed, the accumulators contain the final scores of all matching documents
 -   In both approaches, optimization techniques can significantly reduce the time required.
+-   The primary disadvantage of the term-at-a-time algorithm is the memory usage required by the accumulator table A. Remember that the document-at-a-time strategy requires only the small priority queue R, which holds a limited number of results. However, the term-at-a-time algorithm makes up for this because of its more efficient disk access. Since it reads each inverted list from start to finish, it requires minimal disk seeking, and it needs very little list buffering to achieve high speeds. In contrast, the document-at-a-time algorithm switches between lists and requires large list buffers to help reduce the cost of seeking
 
 ## In what contexts is query transformation / expansion advantageous?
 
