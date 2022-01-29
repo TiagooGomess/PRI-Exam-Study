@@ -191,7 +191,7 @@ Verify that the sum of the squares of the components of each of the document vec
 -   For `Doc3`:
     -   `0.611^2 + 0^2 + 0.725^2 + 0.394^2 = 1`
 
-The vectors were normalized, so the some of the squares of each component is 1.
+The vectors were normalized, so the sum of the squares of each component is 1.
 
 <hr>
 
