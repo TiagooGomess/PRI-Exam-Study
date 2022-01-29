@@ -206,8 +206,8 @@ ii) Euclidean normalized idf
         -   auto => (0.126, 0.7667, 0)
         -   insurance => (0, 0.613, 0.725)
         -   best => (0.422, 0, 0.394)
-    -   v(q) normalization value = sqrt(1^2 + 1^2) = sqrt(2)
-    -   v(q) normalized = (1/sqrt(2), 0, 1/sqrt(2), 0) = (0.707, 0, 0.707, 0)
+    -   `v(q) normalization value = sqrt(1^2 + 1^2) = sqrt(2)`
+    -   `v(q) normalized = (1/sqrt(2), 0, 1/sqrt(2), 0) = (0.707, 0, 0.707, 0)`
     -   For `Doc1`:
         -   `score = v(q) . v(d) = (0.707, 0, 0.707, 0) . (0.897, 0.126, 0, 0.422) = 0.634`
     -   For `Doc2`:
