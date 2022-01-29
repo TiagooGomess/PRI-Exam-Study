@@ -34,3 +34,25 @@ Other example:
 -   Number of pages N3 is pointing to -> 1
 
 ## Calculate Hub and Authority values for a set of linked documents.
+
+![](https://i.imgur.com/sz6fGRc.png)
+
+#### Hub Values
+
+`Hub(N) = sum (Auth values of the pages N is pointing to)`
+
+For example:
+
+`Hub(N2) = Auth(N3) + Auth(N4)`
+
+-   Pages N2 is pointing to N3 and N4
+
+#### Authority Values
+
+`Auth(N) = sum (Hub values of the pages pointing to N)`
+
+For example:
+
+`Auth(N4) = Hub(N2) + Hub(N3)`
+
+-   Pages N2 and N3 are pointing to N
