@@ -8,3 +8,4 @@
 -   [Link Analysis](./6_link_analysis.md)
 -   [Query Processing](./7_query_processing.md)
 -   [Entity-oriented Search](./8_entity_oriented_search.md)
+-   [Search User Interfaces](./9_search_user_interfaces.md)
